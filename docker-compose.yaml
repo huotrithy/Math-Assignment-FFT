@@ -1,18 +1,18 @@
 services:
-  move-review-sentiment-analysis-ui:
+  fft-denoise:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: move-review-sentiment-analysis-ui
-    image: ghcr.io/huotrithy/move-review-sentiment-analysis-ui:v1.0.0
+    container_name: fft-denoise
+    image: ghcr.io/huotrithy/fft-denoise:v1.0.0
     environment:
       - TZ=Asia/Phnom_Penh
     ports:
-      - "127.0.0.1:8501:8501"
+      - "127.0.0.1:8503:8503"
     restart: no
 
     healthcheck:
-      test: ["CMD-SHELL", "wget --spider -q http://move-review-sentiment-analysis-ui:8501/_stcore/health || exit 1"]
+      test: ["CMD-SHELL", "wget --spider -q http://fft-denoise:8503/_stcore/health || exit 1"]
       interval: 40s
       timeout: 30s
       retries: 3
