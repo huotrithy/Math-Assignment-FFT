@@ -1,0 +1,5 @@
+pydub
+numba
+numpy
+streamlit
+pandas
