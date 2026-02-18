@@ -3,3 +3,7 @@ numba
 numpy
 streamlit
 pandas
+librosa
+soundfile
+matplotlib
+scipy
