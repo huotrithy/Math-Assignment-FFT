@@ -9,7 +9,7 @@ services:
       - TZ=Asia/Phnom_Penh
     ports:
       - "127.0.0.1:8503:8503"
-    restart: no
+    restart: always
 
     healthcheck:
       test: ["CMD-SHELL", "wget --spider -q http://fft-denoise:8503/_stcore/health || exit 1"]
