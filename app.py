@@ -142,10 +142,10 @@ with st.sidebar:
         ],
     )
 
-    st.markdown("### Parameters")
+    # st.markdown("### Parameters")
 
-    alpha = st.slider("Over-subtraction (alpha)", 0.5, 5.0, 1.5, 0.1)
-    beta = st.slider("Spectral Floor (beta)", 0.0, 0.5, 0.1, 0.01)
+    # alpha = st.slider("Over-subtraction (alpha)", 0.5, 5.0, 1.5, 0.1)
+    # beta = st.slider("Spectral Floor (beta)", 0.0, 0.5, 0.1, 0.01)
 
     run_button = st.button("Apply Denoising")
 
@@ -172,17 +172,17 @@ if uploaded_file is not None:
 
             if method == "Spectral Subtraction (Magnitude Domain)":
                 y_clean = spectral_subtraction_magnitude(
-                    y_noisy, sr, alpha, beta
+                    y_noisy, sr, 1.5 , 0.15 
                 )
 
             elif method == "Wiener Filter (Power Domain)":
                 y_clean = wiener_filter_power(
-                    y_noisy, sr, beta
+                    y_noisy, sr, 0.15
                 )
 
             else:
                 y_clean = adaptive_power_subtraction(
-                    y_noisy, sr, alpha, beta
+                    y_noisy, sr, 3.0, 0.05
                 )
 
         # --------------------------------------------------
